@@ -55,7 +55,9 @@ class EvaluationRun(BaseModel):
     def save_json(self, path: str | Path) -> None:
         """Persist this run as readable JSON."""
 
-        Path(path).write_text(self.model_dump_json(indent=2), encoding="utf-8")
+        output_path = Path(path)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_path.write_text(self.model_dump_json(indent=2), encoding="utf-8")
 
     @classmethod
     def load_json(cls, path: str | Path) -> "EvaluationRun":
