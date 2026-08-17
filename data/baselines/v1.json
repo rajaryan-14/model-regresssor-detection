@@ -1,0 +1,872 @@
+{
+  "run_id": "ef2942d0-c40c-469a-9e3b-906af82d83c6",
+  "prompt_version": "v1",
+  "model": "qwen2.5vl:3b",
+  "dataset_version": "v1",
+  "started_at": "2026-08-17T14:04:02.991215Z",
+  "completed_at": "2026-08-17T14:06:12.309893Z",
+  "cases": [
+    {
+      "case_id": "billing-001",
+      "input": "Why was I charged twice for my subscription this month?",
+      "expected": {
+        "category": "billing",
+        "summary": "Customer reports a duplicate subscription charge."
+      },
+      "actual": {
+        "category": "billing",
+        "summary": "Customer inquiring about duplicate billing charges for subscription."
+      },
+      "category_match": true,
+      "summary_score": 0.5,
+      "latency_ms": 31562.85739998566,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "technical-001",
+      "input": "The export button spins forever and never downloads my report.",
+      "expected": {
+        "category": "technical",
+        "summary": "Customer cannot download a report because export is stuck."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "Technical issue with export button not downloading report"
+      },
+      "category_match": true,
+      "summary_score": 0.4,
+      "latency_ms": 25214.271199976793,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "account-001",
+      "input": "I changed phones and can no longer sign in because I lost my authenticator.",
+      "expected": {
+        "category": "account",
+        "summary": "Customer needs account access after losing their authenticator."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "Customer needs help with authenticator recovery for phone change"
+      },
+      "category_match": false,
+      "summary_score": 0.2857142857142857,
+      "latency_ms": 17137.324000010267,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "general-001",
+      "input": "What time does your support team operate on weekends?",
+      "expected": {
+        "category": "general",
+        "summary": "Customer asks about weekend support hours."
+      },
+      "actual": {
+        "category": "general",
+        "summary": "Inquiring about the operating hours of the support team on weekends."
+      },
+      "category_match": true,
+      "summary_score": 0.6,
+      "latency_ms": 22796.61190000479,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "technical-002",
+      "input": "pls hlp app keeps crashng when i open settngs",
+      "expected": {
+        "category": "technical",
+        "summary": "Customer reports that the app crashes when opening settings."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "Help with app crashing when opening settings"
+      },
+      "category_match": true,
+      "summary_score": 0.6666666666666666,
+      "latency_ms": 27450.56990001467,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "billing-002",
+      "input": "I love paying for features I cannot use. Please explain this invoice.",
+      "expected": {
+        "category": "billing",
+        "summary": "Customer sarcastically asks for an explanation of an invoice."
+      },
+      "actual": {
+        "category": "billing",
+        "summary": "Inquiry about an invoice for unused features"
+      },
+      "category_match": true,
+      "summary_score": 0.25,
+      "latency_ms": 11482.679400010966,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "billing-003",
+      "input": "Can I switch from monthly to annual billing without losing my data?",
+      "expected": {
+        "category": "billing",
+        "summary": "Customer asks about changing their billing cycle."
+      },
+      "actual": {
+        "category": "billing",
+        "summary": "Request to switch from monthly to annual billing without losing data."
+      },
+      "category_match": true,
+      "summary_score": 0.16666666666666666,
+      "latency_ms": 14455.369799979962,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "billing-004",
+      "input": "The receipt has our old company name. Could you reissue it?",
+      "expected": {
+        "category": "billing",
+        "summary": "Customer requests a corrected receipt with the company name updated."
+      },
+      "actual": {
+        "category": "billing",
+        "summary": "Request for reissuing a receipt with an old company name."
+      },
+      "category_match": true,
+      "summary_score": 0.5,
+      "latency_ms": 19849.160200014012,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "billing-005",
+      "input": "I cancelled yesterday but still see a pending renewal charge.",
+      "expected": {
+        "category": "billing",
+        "summary": "Customer questions a pending renewal charge after cancellation."
+      },
+      "actual": {
+        "category": "billing",
+        "summary": "Customer reports a pending renewal charge after cancelling a service."
+      },
+      "category_match": true,
+      "summary_score": 0.6666666666666666,
+      "latency_ms": 20629.519300011452,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "billing-006",
+      "input": "Do you accept invoices in EUR for customers in Germany?",
+      "expected": {
+        "category": "billing",
+        "summary": "Customer asks whether billing supports invoices in euros."
+      },
+      "actual": {
+        "category": "billing",
+        "summary": "Inquiry about accepting EUR invoices for German customers"
+      },
+      "category_match": true,
+      "summary_score": 0.16666666666666666,
+      "latency_ms": 20070.238500018604,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "technical-003",
+      "input": "The dashboard is blank after I sign in, though the sidebar loads.",
+      "expected": {
+        "category": "technical",
+        "summary": "Customer sees a blank dashboard after signing in."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "Technical issue with dashboard loading"
+      },
+      "category_match": true,
+      "summary_score": 0.2,
+      "latency_ms": 20040.13850001502,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "technical-004",
+      "input": "Your API returns 429 every few seconds even though we are under our limit.",
+      "expected": {
+        "category": "technical",
+        "summary": "Customer reports unexpected API rate-limit errors."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "API rate limit exceeded"
+      },
+      "category_match": true,
+      "summary_score": 0.5,
+      "latency_ms": 19776.144999981625,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "technical-005",
+      "input": "Images in the uploaded CSV look blurry in the preview.",
+      "expected": {
+        "category": "technical",
+        "summary": "Customer reports blurry images in the CSV preview."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "Technical issue with image clarity in preview"
+      },
+      "category_match": true,
+      "summary_score": 0.2,
+      "latency_ms": 19238.496300007682,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "technical-006",
+      "input": "Après la mise à jour, la page reste blanche.",
+      "expected": {
+        "category": "technical",
+        "summary": "Customer reports a blank page after an update."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "Technical issue with the page not loading after an update."
+      },
+      "category_match": true,
+      "summary_score": 0.6,
+      "latency_ms": 19519.807500008028,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "technical-007",
+      "input": "Is there a way to export more than 10,000 rows? The current export stops at the limit.",
+      "expected": {
+        "category": "technical",
+        "summary": "Customer asks about an export row limit."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "Request for technical assistance to export more than 10,000 rows."
+      },
+      "category_match": true,
+      "summary_score": 0.2,
+      "latency_ms": 20931.89359997632,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "account-002",
+      "input": "Please change the email address on my account to new@example.com.",
+      "expected": {
+        "category": "account",
+        "summary": "Customer requests an account email address change."
+      },
+      "actual": {
+        "category": "account",
+        "summary": "Request to change email address on account"
+      },
+      "category_match": true,
+      "summary_score": 0.8,
+      "latency_ms": 20798.882600007346,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "account-003",
+      "input": "My invitation link says it has expired. Can you send another one?",
+      "expected": {
+        "category": "account",
+        "summary": "Customer needs a replacement expired account invitation."
+      },
+      "actual": {
+        "category": "account",
+        "summary": "Request for a new invitation link due to expiration"
+      },
+      "category_match": true,
+      "summary_score": 0.2,
+      "latency_ms": 20770.012799999677,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "account-004",
+      "input": "I think someone changed my password. I cannot log in and the reset email never arrives.",
+      "expected": {
+        "category": "account",
+        "summary": "Customer suspects account compromise and cannot reset their password."
+      },
+      "actual": {
+        "category": "account",
+        "summary": "Password reset issue"
+      },
+      "category_match": true,
+      "summary_score": 0.2857142857142857,
+      "latency_ms": 20403.92489999067,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "account-005",
+      "input": "Can our workspace have three administrators instead of one?",
+      "expected": {
+        "category": "account",
+        "summary": "Customer asks about adding more workspace administrators."
+      },
+      "actual": {
+        "category": "account",
+        "summary": "Request to increase the number of administrators in the workspace."
+      },
+      "category_match": true,
+      "summary_score": 0.3333333333333333,
+      "latency_ms": 20358.856900013052,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "account-006",
+      "input": "I accidentally created two profiles with the same name. How do I merge them?",
+      "expected": {
+        "category": "account",
+        "summary": "Customer asks how to merge duplicate profiles."
+      },
+      "actual": {
+        "category": "account",
+        "summary": "Request to merge two profiles with the same name."
+      },
+      "category_match": true,
+      "summary_score": 0.4,
+      "latency_ms": 20504.10409999313,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "general-002",
+      "input": "Where can I read the documentation for webhooks?",
+      "expected": {
+        "category": "general",
+        "summary": "Customer asks where to find webhook documentation."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "Request for documentation on webhooks"
+      },
+      "category_match": false,
+      "summary_score": 0.2,
+      "latency_ms": 20325.727699993877,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "general-003",
+      "input": "Hi",
+      "expected": {
+        "category": "general",
+        "summary": "Customer sends a greeting without a specific request."
+      },
+      "actual": {
+        "category": "general",
+        "summary": "Customer is asking for general information or support."
+      },
+      "category_match": true,
+      "summary_score": 0.0,
+      "latency_ms": 19650.283599999966,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "general-004",
+      "input": "Do you offer a student plan for universities?",
+      "expected": {
+        "category": "general",
+        "summary": "Customer asks whether a student plan is available."
+      },
+      "actual": {
+        "category": "account",
+        "summary": "Inquiry about student plan for universities"
+      },
+      "category_match": false,
+      "summary_score": 0.4,
+      "latency_ms": 18093.60849999939,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "general-005",
+      "input": "Can your service connect to Notion and Microsoft Teams?",
+      "expected": {
+        "category": "general",
+        "summary": "Customer asks about integrations with Notion and Microsoft Teams."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "Technical support for connecting services to Notion and Microsoft Teams."
+      },
+      "category_match": false,
+      "summary_score": 0.5,
+      "latency_ms": 18359.204899985343,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "general-006",
+      "input": "I expected a faster response, but thanks for getting back to me.",
+      "expected": {
+        "category": "general",
+        "summary": "Customer comments on support response time."
+      },
+      "actual": {
+        "category": "general",
+        "summary": "Customer expresses satisfaction with prompt response."
+      },
+      "category_match": true,
+      "summary_score": 0.25,
+      "latency_ms": 18080.05609997781,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "billing-007",
+      "input": "Where do I download the tax invoice for last quarter?",
+      "expected": {
+        "category": "billing",
+        "summary": "Customer asks where to download a quarterly tax invoice."
+      },
+      "actual": {
+        "category": "billing",
+        "summary": "Request for tax invoice download"
+      },
+      "category_match": true,
+      "summary_score": 0.5,
+      "latency_ms": 17946.661399997538,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "billing-008",
+      "input": "The card ending 4421 is no longer valid. How can I update payment?",
+      "expected": {
+        "category": "billing",
+        "summary": "Customer needs to update an expired payment card."
+      },
+      "actual": {
+        "category": "billing",
+        "summary": "Request to update payment card information"
+      },
+      "category_match": true,
+      "summary_score": 0.6,
+      "latency_ms": 17535.167099995306,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "billing-009",
+      "input": "Why is the invoice total higher than the price shown on the pricing page?",
+      "expected": {
+        "category": "billing",
+        "summary": "Customer questions a difference between the invoice and advertised price."
+      },
+      "actual": {
+        "category": "billing",
+        "summary": "Inquiry about invoice discrepancy"
+      },
+      "category_match": true,
+      "summary_score": 0.16666666666666666,
+      "latency_ms": 16972.55789997871,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "billing-010",
+      "input": "Can you refund the unused days from my annual plan?",
+      "expected": {
+        "category": "billing",
+        "summary": "Customer requests a refund for unused annual-plan time."
+      },
+      "actual": {
+        "category": "billing",
+        "summary": "Request for refund of unused days from annual plan."
+      },
+      "category_match": true,
+      "summary_score": 0.6666666666666666,
+      "latency_ms": 16940.33190002665,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "billing-011",
+      "input": "My bank shows the payment completed, but your account says payment failed.",
+      "expected": {
+        "category": "billing",
+        "summary": "Customer reports conflicting payment-completed and payment-failed statuses."
+      },
+      "actual": {
+        "category": "billing",
+        "summary": "Payment failed despite bank confirmation"
+      },
+      "category_match": true,
+      "summary_score": 0.3333333333333333,
+      "latency_ms": 16965.219199977582,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "billing-012",
+      "input": "The charge on my card is in USD, not GBP. Is that expected?",
+      "expected": {
+        "category": "billing",
+        "summary": "Customer asks about an unexpected billing currency."
+      },
+      "actual": {
+        "category": "billing",
+        "summary": "Inquiry about currency of card charge"
+      },
+      "category_match": true,
+      "summary_score": 0.4,
+      "latency_ms": 17060.385899996618,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "technical-008",
+      "input": "Search results stop loading after page two.",
+      "expected": {
+        "category": "technical",
+        "summary": "Customer cannot load search results beyond the second page."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "Technical issue with search results not loading after page two."
+      },
+      "category_match": true,
+      "summary_score": 0.42857142857142855,
+      "latency_ms": 16987.9268000077,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "technical-009",
+      "input": "The mobile app sends notifications hours after the event.",
+      "expected": {
+        "category": "technical",
+        "summary": "Customer reports delayed mobile notifications."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "Mobile app notification timing issue"
+      },
+      "category_match": true,
+      "summary_score": 0.25,
+      "latency_ms": 16896.831499994732,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "technical-010",
+      "input": "Every webhook delivery is marked successful, but our endpoint receives nothing.",
+      "expected": {
+        "category": "technical",
+        "summary": "Customer reports missing webhook deliveries despite successful statuses."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "Webhook delivery marked successful but endpoint receives nothing"
+      },
+      "category_match": true,
+      "summary_score": 0.2857142857142857,
+      "latency_ms": 17254.156699986197,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "technical-011",
+      "input": "The keyboard shortcut Ctrl+K does nothing in Chrome.",
+      "expected": {
+        "category": "technical",
+        "summary": "Customer reports that a keyboard shortcut does not work in Chrome."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "Keyboard shortcut Ctrl+K not functioning in Chrome"
+      },
+      "category_match": true,
+      "summary_score": 0.5714285714285714,
+      "latency_ms": 17392.920399986906,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "technical-012",
+      "input": "Uploading a 2GB video reaches 99% and then restarts.",
+      "expected": {
+        "category": "technical",
+        "summary": "Customer reports large uploads restarting near completion."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "Video upload issue reaching 99% and restarting"
+      },
+      "category_match": true,
+      "summary_score": 0.16666666666666666,
+      "latency_ms": 17911.72319999896,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "technical-013",
+      "input": "The report says 0 rows, but I can see records in the table.",
+      "expected": {
+        "category": "technical",
+        "summary": "Customer reports an incorrect zero-row report count."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "Technical issue with report not displaying all records"
+      },
+      "category_match": true,
+      "summary_score": 0.16666666666666666,
+      "latency_ms": 18012.113400007365,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "account-007",
+      "input": "How do I remove a former employee from our workspace?",
+      "expected": {
+        "category": "account",
+        "summary": "Customer asks how to remove a former employee from the workspace."
+      },
+      "actual": {
+        "category": "account",
+        "summary": "Request to remove a former employee from the workspace."
+      },
+      "category_match": true,
+      "summary_score": 0.6666666666666666,
+      "latency_ms": 18195.708599989302,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "account-008",
+      "input": "My name changed after marriage. Can I update the profile name?",
+      "expected": {
+        "category": "account",
+        "summary": "Customer asks to update their profile name."
+      },
+      "actual": {
+        "category": "account",
+        "summary": "Request to update profile name due to name change after marriage."
+      },
+      "category_match": true,
+      "summary_score": 0.6,
+      "latency_ms": 18473.0802999984,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "account-009",
+      "input": "I am locked out after too many attempts. When can I try again?",
+      "expected": {
+        "category": "account",
+        "summary": "Customer asks about regaining access after account lockout."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "I am locked out after too many attempts."
+      },
+      "category_match": false,
+      "summary_score": 0.14285714285714285,
+      "latency_ms": 18409.299699997064,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "account-010",
+      "input": "Can I use single sign-on with our company identity provider?",
+      "expected": {
+        "category": "account",
+        "summary": "Customer asks whether their workspace supports single sign-on."
+      },
+      "actual": {
+        "category": "account",
+        "summary": "Inquiry about using single sign-on with company identity provider"
+      },
+      "category_match": true,
+      "summary_score": 0.2857142857142857,
+      "latency_ms": 18867.605300009018,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "account-011",
+      "input": "My teammate sees an invitation but the accept button is missing.",
+      "expected": {
+        "category": "account",
+        "summary": "Customer reports a missing accept button on a workspace invitation."
+      },
+      "actual": {
+        "category": "technical",
+        "summary": "Technical support for missing accept button on invitation"
+      },
+      "category_match": false,
+      "summary_score": 0.6666666666666666,
+      "latency_ms": 19027.385399997,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "account-012",
+      "input": "Please deactivate my account at the end of this month.",
+      "expected": {
+        "category": "account",
+        "summary": "Customer requests account deactivation at month end."
+      },
+      "actual": {
+        "category": "account",
+        "summary": "Request to deactivate account at the end of the month."
+      },
+      "category_match": true,
+      "summary_score": 0.6,
+      "latency_ms": 19507.25070000044,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "general-007",
+      "input": "Who should I contact about a partnership?",
+      "expected": {
+        "category": "general",
+        "summary": "Customer asks who to contact about a partnership."
+      },
+      "actual": {
+        "category": "account",
+        "summary": "Contact account support for partnership inquiries."
+      },
+      "category_match": false,
+      "summary_score": 0.4,
+      "latency_ms": 19099.133800016716,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "general-008",
+      "input": "Do you have a public status page?",
+      "expected": {
+        "category": "general",
+        "summary": "Customer asks whether a public status page exists."
+      },
+      "actual": {
+        "category": "general",
+        "summary": "Inquiry about a public status page."
+      },
+      "category_match": true,
+      "summary_score": 0.5,
+      "latency_ms": 19041.68200001004,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "general-009",
+      "input": "Can I schedule a product demo next Tuesday afternoon?",
+      "expected": {
+        "category": "general",
+        "summary": "Customer asks to schedule a product demo."
+      },
+      "actual": {
+        "category": "account",
+        "summary": "Requesting to schedule a product demo"
+      },
+      "category_match": false,
+      "summary_score": 0.75,
+      "latency_ms": 19056.146200018702,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "general-010",
+      "input": "Thanks, that answered my question!",
+      "expected": {
+        "category": "general",
+        "summary": "Customer thanks support for answering their question."
+      },
+      "actual": {
+        "category": "general",
+        "summary": "The email is a general response to a question."
+      },
+      "category_match": true,
+      "summary_score": 0.2,
+      "latency_ms": 18674.46129999007,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "general-011",
+      "input": "¿Tienen soporte en español durante los fines de semana?",
+      "expected": {
+        "category": "general",
+        "summary": "Customer asks whether Spanish support is available on weekends."
+      },
+      "actual": {
+        "category": "general",
+        "summary": "Inquiry about weekend support availability in Spanish."
+      },
+      "category_match": true,
+      "summary_score": 0.3333333333333333,
+      "latency_ms": 18714.892299991334,
+      "status": "failed",
+      "error": null
+    },
+    {
+      "case_id": "general-012",
+      "input": "Your product looks interesting. What is the typical setup time?",
+      "expected": {
+        "category": "general",
+        "summary": "Customer asks about the typical product setup time."
+      },
+      "actual": {
+        "category": "general",
+        "summary": "Inquiry about product setup time"
+      },
+      "category_match": true,
+      "summary_score": 0.6666666666666666,
+      "latency_ms": 18289.903400000185,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "case_id": "general-013",
+      "input": "Is there a limit to how many projects we can create?",
+      "expected": {
+        "category": "general",
+        "summary": "Customer asks whether there is a project-count limit."
+      },
+      "actual": {
+        "category": "account",
+        "summary": "Inquiring about the maximum number of projects that can be created."
+      },
+      "category_match": false,
+      "summary_score": 0.0,
+      "latency_ms": 18312.52140001743,
+      "status": "failed",
+      "error": null
+    }
+  ],
+  "metrics": {
+    "pass_rate": 0.34,
+    "category_accuracy": 0.82,
+    "average_summary_score": 0.3923809523809524,
+    "failed_cases": 33,
+    "per_category_accuracy": {
+      "account": 0.75,
+      "billing": 1.0,
+      "general": 0.5384615384615384,
+      "technical": 1.0
+    }
+  }
+}
