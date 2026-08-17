@@ -48,7 +48,14 @@ The workflow in `.github/workflows/evaluate-prompts.yml` runs for pull requests 
 - `OPENAI_API_KEY` — required for the live classifier evaluation;
 - `SLACK_WEBHOOK_URL` — optional; enables Slack alerts.
 
-The workflow always runs the offline test suite, uploads the HTML and Markdown reports, and comments the Markdown scorecard on the pull request. Local runs can compare against an explicit baseline with `--baseline path/to/run.json`; CI runs without a baseline until a trusted baseline artifact or committed baseline is configured.
+The workflow can be started manually with **Actions → Evaluate prompt changes → Run workflow**. It always runs the offline test suite, uploads the HTML, Markdown, and JSON run reports, and comments the Markdown scorecard on pull requests. Once `data/baselines/v1.json` exists, CI automatically compares against it.
+
+To create the first trusted baseline:
+
+1. Run the workflow manually on the default branch with the current prompt.
+2. Download `evaluation.json` from the workflow artifact.
+3. Save it as `data/baselines/v1.json` and commit it after reviewing the report.
+4. Future prompt pull requests will compare against that committed baseline.
 
 ## Container usage
 

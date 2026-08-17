@@ -21,6 +21,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--db", default="eval_runs/history.sqlite", help="SQLite history path")
     parser.add_argument("--report", default="reports/evaluation.html", help="HTML report path")
     parser.add_argument("--summary-file", help="Optional Markdown summary output path")
+    parser.add_argument("--output-run", help="Optional JSON path for the complete evaluation run")
     parser.add_argument("--baseline", help="Explicit baseline JSON run path")
     parser.add_argument("--model", default="gpt-4o-mini")
     parser.add_argument("--judge-model", help="Optional OpenAI model for LLM-as-judge summary scoring")
@@ -44,6 +45,8 @@ async def run(args: argparse.Namespace) -> int:
 
     store = RunStore(args.db)
     store.save(current)
+    if args.output_run:
+        current.save_json(args.output_run)
     baseline = EvaluationRun.load_json(args.baseline) if args.baseline else None
     if baseline is None:
         compatible = store.recent(

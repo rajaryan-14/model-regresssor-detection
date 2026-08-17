@@ -1,6 +1,7 @@
 name: Evaluate prompt changes
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - "prompts/**"
@@ -34,13 +35,19 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        run: >-
-          python -m regression_detection.cli
-          --prompt prompts/v1.yaml
-          --dataset data/golden/v1.json
-          --db eval_runs/history.sqlite
-          --report reports/evaluation.html
-          --summary-file reports/evaluation.md
+        run: |
+          BASELINE_ARGS=""
+          if [ -f data/baselines/v1.json ]; then
+            BASELINE_ARGS="--baseline data/baselines/v1.json"
+          fi
+          python -m regression_detection.cli \
+            --prompt prompts/v1.yaml \
+            --dataset data/golden/v1.json \
+            --db eval_runs/history.sqlite \
+            --report reports/evaluation.html \
+            --summary-file reports/evaluation.md \
+            --output-run reports/evaluation.json \
+            $BASELINE_ARGS
 
       - name: Upload evaluation report
         if: always()
