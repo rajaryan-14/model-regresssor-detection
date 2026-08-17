@@ -41,6 +41,15 @@ For semantic summary judging, add `--judge-model gpt-4o-mini`. Without this flag
 
 The evaluator also computes a slow-drift signal from the latest seven compatible runs. It reports `insufficient_data` until a complete window exists, then warns when the rolling pass-rate average falls below 90%.
 
+## GitHub Actions setup
+
+The workflow in `.github/workflows/evaluate-prompts.yml` runs for pull requests that change prompts, golden data, evaluator code, or project dependencies. Add these repository secrets under **Settings → Secrets and variables → Actions**:
+
+- `OPENAI_API_KEY` — required for the live classifier evaluation;
+- `SLACK_WEBHOOK_URL` — optional; enables Slack alerts.
+
+The workflow always runs the offline test suite, uploads the HTML and Markdown reports, and comments the Markdown scorecard on the pull request. Local runs can compare against an explicit baseline with `--baseline path/to/run.json`; CI runs without a baseline until a trusted baseline artifact or committed baseline is configured.
+
 ## Container usage
 
 ```powershell
