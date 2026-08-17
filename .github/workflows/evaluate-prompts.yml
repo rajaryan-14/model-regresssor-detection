@@ -57,7 +57,7 @@ jobs:
           path: reports/
 
       - name: Comment report status on pull request
-        if: always()
+        if: always() && github.event_name == 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
           PR_URL: ${{ github.event.pull_request.html_url }}
