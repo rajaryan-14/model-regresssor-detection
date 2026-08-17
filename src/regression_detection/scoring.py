@@ -60,9 +60,20 @@ class KeywordSummaryScorer:
 class OpenAISummaryJudge:
     """Optional model-based summary judge returning a normalized 0–1 score."""
 
-    def __init__(self, model: str = "gpt-4o-mini", client: AsyncOpenAI | None = None):
+    def __init__(
+        self,
+        model: str = "gpt-4o-mini",
+        client: AsyncOpenAI | None = None,
+        base_url: str | None = None,
+        api_key: str | None = None,
+    ):
         self.model = model
-        self.client = client or AsyncOpenAI()
+        if client is not None:
+            self.client = client
+        elif base_url:
+            self.client = AsyncOpenAI(base_url=base_url, api_key=api_key)
+        else:
+            self.client = AsyncOpenAI()
         self.pass_threshold = 0.5
 
     async def score(self, expected: str, actual: str) -> float:

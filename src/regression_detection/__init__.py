@@ -14,7 +14,7 @@ from .evaluation import (
     compare_runs,
     detect_slow_drift,
 )
-from .feature import EmailClassifier, OpenAIEmailClassifier
+from .feature import EmailClassifier, OllamaEmailClassifier, OpenAIEmailClassifier
 from .prompts import PromptConfig, load_prompt
 from .reporting import render_html_report, write_html_report
 from .scoring import KeywordSummaryScorer, OpenAISummaryJudge
@@ -32,6 +32,7 @@ __all__ = [
     "GoldenCase",
     "GoldenDataset",
     "KeywordSummaryScorer",
+    "OllamaEmailClassifier",
     "OpenAIEmailClassifier",
     "OpenAISummaryJudge",
     "PromptConfig",

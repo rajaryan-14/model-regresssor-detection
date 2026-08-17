@@ -35,3 +35,19 @@ class OpenAIEmailClassifier:
         if not content:
             raise ValueError("Model returned an empty classification")
         return EmailClassification.model_validate_json(content)
+
+
+class OllamaEmailClassifier(OpenAIEmailClassifier):
+    """Local Ollama adapter through its OpenAI-compatible `/v1` endpoint."""
+
+    def __init__(
+        self,
+        prompt: PromptConfig,
+        model: str = "llama3.2:3b",
+        base_url: str = "http://localhost:11434/v1",
+    ):
+        super().__init__(
+            prompt,
+            model=model,
+            client=AsyncOpenAI(base_url=base_url, api_key="ollama"),
+        )

@@ -7,7 +7,7 @@ from pathlib import Path
 from .alerting import SlackNotifier
 from .datasets import load_golden_dataset
 from .evaluation import EvaluationRun, EvaluationRunner, compare_runs, detect_slow_drift
-from .feature import OpenAIEmailClassifier
+from .feature import OllamaEmailClassifier, OpenAIEmailClassifier
 from .prompts import load_prompt
 from .reporting import write_html_report
 from .scoring import OpenAISummaryJudge
@@ -24,6 +24,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--output-run", help="Optional JSON path for the complete evaluation run")
     parser.add_argument("--baseline", help="Explicit baseline JSON run path")
     parser.add_argument("--model", default="gpt-4o-mini")
+    parser.add_argument("--provider", choices=("openai", "ollama"), default="openai")
+    parser.add_argument("--ollama-base-url", default=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434/v1"))
     parser.add_argument("--judge-model", help="Optional OpenAI model for LLM-as-judge summary scoring")
     parser.add_argument("--max-concurrency", type=int, default=8)
     parser.add_argument("--slack-webhook-url", default=os.getenv("SLACK_WEBHOOK_URL"))
@@ -34,9 +36,22 @@ def build_parser() -> argparse.ArgumentParser:
 async def run(args: argparse.Namespace) -> int:
     prompt = load_prompt(args.prompt)
     dataset = load_golden_dataset(args.dataset)
-    judge = OpenAISummaryJudge(args.judge_model) if args.judge_model else None
+    if args.provider == "ollama":
+        classifier = OllamaEmailClassifier(prompt, model=args.model, base_url=args.ollama_base_url)
+        judge = (
+            OpenAISummaryJudge(
+                args.judge_model,
+                base_url=args.ollama_base_url,
+                api_key="ollama",
+            )
+            if args.judge_model
+            else None
+        )
+    else:
+        classifier = OpenAIEmailClassifier(prompt, model=args.model)
+        judge = OpenAISummaryJudge(args.judge_model) if args.judge_model else None
     current = await EvaluationRunner(
-        OpenAIEmailClassifier(prompt, model=args.model),
+        classifier,
         prompt_version=prompt.version,
         model=args.model,
         max_concurrency=args.max_concurrency,

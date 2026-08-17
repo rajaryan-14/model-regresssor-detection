@@ -39,6 +39,22 @@ Set `OPENAI_API_KEY` to run the live OpenAI adapter. Set `SLACK_WEBHOOK_URL` to 
 
 For semantic summary judging, add `--judge-model gpt-4o-mini`. Without this flag, the evaluator uses the deterministic keyword scorer and does not make additional judge requests.
 
+## Local Ollama mode
+
+Ollama can run the classifier locally without OpenAI API credits. Install Ollama, then pull a model that supports structured JSON output:
+
+```powershell
+ollama pull llama3.2:3b
+ollama serve
+model-eval --provider ollama --model llama3.2:3b --prompt prompts/v1.yaml --dataset data/golden/v1.json
+```
+
+Ollama exposes an OpenAI-compatible API at `http://localhost:11434/v1`; use `OLLAMA_BASE_URL` or `--ollama-base-url` when it runs elsewhere. The optional judge works locally too:
+
+```powershell
+model-eval --provider ollama --model llama3.2:3b --judge-model llama3.2:3b --prompt prompts/v1.yaml --dataset data/golden/v1.json
+```
+
 The evaluator also computes a slow-drift signal from the latest seven compatible runs. It reports `insufficient_data` until a complete window exists, then warns when the rolling pass-rate average falls below 90%.
 
 ## GitHub Actions setup
