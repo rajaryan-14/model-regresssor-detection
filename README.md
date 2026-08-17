@@ -61,10 +61,9 @@ The evaluator also computes a slow-drift signal from the latest seven compatible
 
 The workflow in `.github/workflows/evaluate-prompts.yml` runs for pull requests that change prompts, golden data, evaluator code, or project dependencies. Add these repository secrets under **Settings → Secrets and variables → Actions**:
 
-- `OPENAI_API_KEY` — required for the live classifier evaluation;
 - `SLACK_WEBHOOK_URL` — optional; enables Slack alerts.
 
-The workflow can be started manually with **Actions → Evaluate prompt changes → Run workflow**. It always runs the offline test suite, uploads the HTML, Markdown, and JSON run reports, and comments the Markdown scorecard on pull requests. Once `data/baselines/v1.json` exists, CI automatically compares against it.
+The workflow can be started manually with **Actions → Evaluate prompt changes → Run workflow**. It runs the offline test suite, installs Ollama, evaluates with the pinned `qwen2.5vl:3b` model, uploads the HTML, Markdown, and JSON run reports, and comments the Markdown scorecard on pull requests. It compares against `data/baselines/v1.json`.
 
 To create the first trusted baseline:
 

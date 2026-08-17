@@ -16,6 +16,7 @@ permissions:
 jobs:
   evaluate:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -31,23 +32,34 @@ jobs:
       - name: Run offline contract tests
         run: pytest
 
-      - name: Evaluate prompt against OpenAI
+      - name: Install Ollama
+        shell: bash
+        run: curl -fsSL https://ollama.com/install.sh | sh
+
+      - name: Start Ollama and pull evaluation model
+        shell: bash
+        run: |
+          ollama serve > /tmp/ollama.log 2>&1 &
+          for attempt in {1..30}; do
+            curl --fail --silent http://127.0.0.1:11434/api/tags > /dev/null && break
+            sleep 2
+          done
+          ollama pull qwen2.5vl:3b
+
+      - name: Evaluate prompt with Ollama
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          BASELINE_ARGS=""
-          if [ -f data/baselines/v1.json ]; then
-            BASELINE_ARGS="--baseline data/baselines/v1.json"
-          fi
           python -m regression_detection.cli \
+            --provider ollama \
+            --model qwen2.5vl:3b \
             --prompt prompts/v1.yaml \
             --dataset data/golden/v1.json \
             --db eval_runs/history.sqlite \
             --report reports/evaluation.html \
             --summary-file reports/evaluation.md \
             --output-run reports/evaluation.json \
-            $BASELINE_ARGS
+            --baseline data/baselines/v1.json
 
       - name: Upload evaluation report
         if: always()
