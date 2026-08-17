@@ -1,0 +1,356 @@
+{
+  "version": "v1",
+  "created_at": "2026-08-17T00:00:00+00:00",
+  "cases": [
+    {
+      "id": "billing-001",
+      "input": "Why was I charged twice for my subscription this month?",
+      "expected": {"category": "billing", "summary": "Customer reports a duplicate subscription charge."},
+      "expected_difficulty": "easy",
+      "notes": "Direct duplicate-charge request."
+    },
+    {
+      "id": "technical-001",
+      "input": "The export button spins forever and never downloads my report.",
+      "expected": {"category": "technical", "summary": "Customer cannot download a report because export is stuck."},
+      "expected_difficulty": "easy",
+      "notes": "Clear product malfunction."
+    },
+    {
+      "id": "account-001",
+      "input": "I changed phones and can no longer sign in because I lost my authenticator.",
+      "expected": {"category": "account", "summary": "Customer needs account access after losing their authenticator."},
+      "expected_difficulty": "medium",
+      "notes": "Authentication issue without a product defect."
+    },
+    {
+      "id": "general-001",
+      "input": "What time does your support team operate on weekends?",
+      "expected": {"category": "general", "summary": "Customer asks about weekend support hours."},
+      "expected_difficulty": "easy",
+      "notes": "Informational question."
+    },
+    {
+      "id": "technical-002",
+      "input": "pls hlp app keeps crashng when i open settngs",
+      "expected": {"category": "technical", "summary": "Customer reports that the app crashes when opening settings."},
+      "expected_difficulty": "medium",
+      "notes": "Typo-heavy technical report."
+    },
+    {
+      "id": "billing-002",
+      "input": "I love paying for features I cannot use. Please explain this invoice.",
+      "expected": {"category": "billing", "summary": "Customer sarcastically asks for an explanation of an invoice."},
+      "expected_difficulty": "hard",
+      "notes": "Sarcasm should not obscure the billing intent."
+    },
+    {
+      "id": "billing-003",
+      "input": "Can I switch from monthly to annual billing without losing my data?",
+      "expected": {"category": "billing", "summary": "Customer asks about changing their billing cycle."},
+      "expected_difficulty": "medium",
+      "notes": "Billing-plan change with an account concern."
+    },
+    {
+      "id": "billing-004",
+      "input": "The receipt has our old company name. Could you reissue it?",
+      "expected": {"category": "billing", "summary": "Customer requests a corrected receipt with the company name updated."},
+      "expected_difficulty": "medium",
+      "notes": "Invoice metadata correction."
+    },
+    {
+      "id": "billing-005",
+      "input": "I cancelled yesterday but still see a pending renewal charge.",
+      "expected": {"category": "billing", "summary": "Customer questions a pending renewal charge after cancellation."},
+      "expected_difficulty": "hard",
+      "notes": "Cancellation and charge timing are intentionally ambiguous."
+    },
+    {
+      "id": "billing-006",
+      "input": "Do you accept invoices in EUR for customers in Germany?",
+      "expected": {"category": "billing", "summary": "Customer asks whether billing supports invoices in euros."},
+      "expected_difficulty": "easy",
+      "notes": "Currency and invoicing question."
+    },
+    {
+      "id": "technical-003",
+      "input": "The dashboard is blank after I sign in, though the sidebar loads.",
+      "expected": {"category": "technical", "summary": "Customer sees a blank dashboard after signing in."},
+      "expected_difficulty": "medium",
+      "notes": "Partial page-loading failure."
+    },
+    {
+      "id": "technical-004",
+      "input": "Your API returns 429 every few seconds even though we are under our limit.",
+      "expected": {"category": "technical", "summary": "Customer reports unexpected API rate-limit errors."},
+      "expected_difficulty": "hard",
+      "notes": "Technical issue expressed with an operational metric."
+    },
+    {
+      "id": "technical-005",
+      "input": "Images in the uploaded CSV look blurry in the preview.",
+      "expected": {"category": "technical", "summary": "Customer reports blurry images in the CSV preview."},
+      "expected_difficulty": "medium",
+      "notes": "Short product-quality defect."
+    },
+    {
+      "id": "technical-006",
+      "input": "Après la mise à jour, la page reste blanche.",
+      "expected": {"category": "technical", "summary": "Customer reports a blank page after an update."},
+      "expected_difficulty": "hard",
+      "notes": "Mixed-language edge case with a clear technical symptom."
+    },
+    {
+      "id": "technical-007",
+      "input": "Is there a way to export more than 10,000 rows? The current export stops at the limit.",
+      "expected": {"category": "technical", "summary": "Customer asks about an export row limit."},
+      "expected_difficulty": "medium",
+      "notes": "Could be a product question or defect; primary intent is export behavior."
+    },
+    {
+      "id": "account-002",
+      "input": "Please change the email address on my account to new@example.com.",
+      "expected": {"category": "account", "summary": "Customer requests an account email address change."},
+      "expected_difficulty": "easy",
+      "notes": "Direct profile-management request."
+    },
+    {
+      "id": "account-003",
+      "input": "My invitation link says it has expired. Can you send another one?",
+      "expected": {"category": "account", "summary": "Customer needs a replacement expired account invitation."},
+      "expected_difficulty": "medium",
+      "notes": "Access and invitation lifecycle issue."
+    },
+    {
+      "id": "account-004",
+      "input": "I think someone changed my password. I cannot log in and the reset email never arrives.",
+      "expected": {"category": "account", "summary": "Customer suspects account compromise and cannot reset their password."},
+      "expected_difficulty": "hard",
+      "notes": "Security-sensitive account access problem."
+    },
+    {
+      "id": "account-005",
+      "input": "Can our workspace have three administrators instead of one?",
+      "expected": {"category": "account", "summary": "Customer asks about adding more workspace administrators."},
+      "expected_difficulty": "medium",
+      "notes": "Workspace permission question."
+    },
+    {
+      "id": "account-006",
+      "input": "I accidentally created two profiles with the same name. How do I merge them?",
+      "expected": {"category": "account", "summary": "Customer asks how to merge duplicate profiles."},
+      "expected_difficulty": "hard",
+      "notes": "Ambiguous identity-management request."
+    },
+    {
+      "id": "general-002",
+      "input": "Where can I read the documentation for webhooks?",
+      "expected": {"category": "general", "summary": "Customer asks where to find webhook documentation."},
+      "expected_difficulty": "easy",
+      "notes": "Information request without a reported defect."
+    },
+    {
+      "id": "general-003",
+      "input": "Hi",
+      "expected": {"category": "general", "summary": "Customer sends a greeting without a specific request."},
+      "expected_difficulty": "hard",
+      "notes": "Extremely short input."
+    },
+    {
+      "id": "general-004",
+      "input": "Do you offer a student plan for universities?",
+      "expected": {"category": "general", "summary": "Customer asks whether a student plan is available."},
+      "expected_difficulty": "easy",
+      "notes": "Pre-sales and plan-availability question."
+    },
+    {
+      "id": "general-005",
+      "input": "Can your service connect to Notion and Microsoft Teams?",
+      "expected": {"category": "general", "summary": "Customer asks about integrations with Notion and Microsoft Teams."},
+      "expected_difficulty": "medium",
+      "notes": "Multiple integration targets in one question."
+    },
+    {
+      "id": "general-006",
+      "input": "I expected a faster response, but thanks for getting back to me.",
+      "expected": {"category": "general", "summary": "Customer comments on support response time."},
+      "expected_difficulty": "hard",
+      "notes": "Sarcastic tone without a clear technical or billing issue."
+    },
+    {
+      "id": "billing-007",
+      "input": "Where do I download the tax invoice for last quarter?",
+      "expected": {"category": "billing", "summary": "Customer asks where to download a quarterly tax invoice."},
+      "expected_difficulty": "easy",
+      "notes": "Invoice retrieval request."
+    },
+    {
+      "id": "billing-008",
+      "input": "The card ending 4421 is no longer valid. How can I update payment?",
+      "expected": {"category": "billing", "summary": "Customer needs to update an expired payment card."},
+      "expected_difficulty": "easy",
+      "notes": "Payment-method update."
+    },
+    {
+      "id": "billing-009",
+      "input": "Why is the invoice total higher than the price shown on the pricing page?",
+      "expected": {"category": "billing", "summary": "Customer questions a difference between the invoice and advertised price."},
+      "expected_difficulty": "medium",
+      "notes": "Pricing and invoicing ambiguity."
+    },
+    {
+      "id": "billing-010",
+      "input": "Can you refund the unused days from my annual plan?",
+      "expected": {"category": "billing", "summary": "Customer requests a refund for unused annual-plan time."},
+      "expected_difficulty": "medium",
+      "notes": "Refund request with prorating context."
+    },
+    {
+      "id": "billing-011",
+      "input": "My bank shows the payment completed, but your account says payment failed.",
+      "expected": {"category": "billing", "summary": "Customer reports conflicting payment-completed and payment-failed statuses."},
+      "expected_difficulty": "hard",
+      "notes": "Payment state mismatch."
+    },
+    {
+      "id": "billing-012",
+      "input": "The charge on my card is in USD, not GBP. Is that expected?",
+      "expected": {"category": "billing", "summary": "Customer asks about an unexpected billing currency."},
+      "expected_difficulty": "medium",
+      "notes": "International billing edge case."
+    },
+    {
+      "id": "technical-008",
+      "input": "Search results stop loading after page two.",
+      "expected": {"category": "technical", "summary": "Customer cannot load search results beyond the second page."},
+      "expected_difficulty": "easy",
+      "notes": "Pagination defect."
+    },
+    {
+      "id": "technical-009",
+      "input": "The mobile app sends notifications hours after the event.",
+      "expected": {"category": "technical", "summary": "Customer reports delayed mobile notifications."},
+      "expected_difficulty": "medium",
+      "notes": "Timing-related product defect."
+    },
+    {
+      "id": "technical-010",
+      "input": "Every webhook delivery is marked successful, but our endpoint receives nothing.",
+      "expected": {"category": "technical", "summary": "Customer reports missing webhook deliveries despite successful statuses."},
+      "expected_difficulty": "hard",
+      "notes": "External integration delivery mismatch."
+    },
+    {
+      "id": "technical-011",
+      "input": "The keyboard shortcut Ctrl+K does nothing in Chrome.",
+      "expected": {"category": "technical", "summary": "Customer reports that a keyboard shortcut does not work in Chrome."},
+      "expected_difficulty": "easy",
+      "notes": "Browser-specific interaction issue."
+    },
+    {
+      "id": "technical-012",
+      "input": "Uploading a 2GB video reaches 99% and then restarts.",
+      "expected": {"category": "technical", "summary": "Customer reports large uploads restarting near completion."},
+      "expected_difficulty": "medium",
+      "notes": "Large-file upload failure."
+    },
+    {
+      "id": "technical-013",
+      "input": "The report says 0 rows, but I can see records in the table.",
+      "expected": {"category": "technical", "summary": "Customer reports an incorrect zero-row report count."},
+      "expected_difficulty": "hard",
+      "notes": "Data display inconsistency."
+    },
+    {
+      "id": "account-007",
+      "input": "How do I remove a former employee from our workspace?",
+      "expected": {"category": "account", "summary": "Customer asks how to remove a former employee from the workspace."},
+      "expected_difficulty": "easy",
+      "notes": "User administration request."
+    },
+    {
+      "id": "account-008",
+      "input": "My name changed after marriage. Can I update the profile name?",
+      "expected": {"category": "account", "summary": "Customer asks to update their profile name."},
+      "expected_difficulty": "easy",
+      "notes": "Profile information update."
+    },
+    {
+      "id": "account-009",
+      "input": "I am locked out after too many attempts. When can I try again?",
+      "expected": {"category": "account", "summary": "Customer asks about regaining access after account lockout."},
+      "expected_difficulty": "medium",
+      "notes": "Account security and access."
+    },
+    {
+      "id": "account-010",
+      "input": "Can I use single sign-on with our company identity provider?",
+      "expected": {"category": "account", "summary": "Customer asks whether their workspace supports single sign-on."},
+      "expected_difficulty": "medium",
+      "notes": "Authentication capability question."
+    },
+    {
+      "id": "account-011",
+      "input": "My teammate sees an invitation but the accept button is missing.",
+      "expected": {"category": "account", "summary": "Customer reports a missing accept button on a workspace invitation."},
+      "expected_difficulty": "hard",
+      "notes": "Invitation and account-state issue."
+    },
+    {
+      "id": "account-012",
+      "input": "Please deactivate my account at the end of this month.",
+      "expected": {"category": "account", "summary": "Customer requests account deactivation at month end."},
+      "expected_difficulty": "easy",
+      "notes": "Direct account lifecycle request."
+    },
+    {
+      "id": "general-007",
+      "input": "Who should I contact about a partnership?",
+      "expected": {"category": "general", "summary": "Customer asks who to contact about a partnership."},
+      "expected_difficulty": "easy",
+      "notes": "General routing question."
+    },
+    {
+      "id": "general-008",
+      "input": "Do you have a public status page?",
+      "expected": {"category": "general", "summary": "Customer asks whether a public status page exists."},
+      "expected_difficulty": "easy",
+      "notes": "Product information request."
+    },
+    {
+      "id": "general-009",
+      "input": "Can I schedule a product demo next Tuesday afternoon?",
+      "expected": {"category": "general", "summary": "Customer asks to schedule a product demo."},
+      "expected_difficulty": "medium",
+      "notes": "Sales and scheduling request."
+    },
+    {
+      "id": "general-010",
+      "input": "Thanks, that answered my question!",
+      "expected": {"category": "general", "summary": "Customer thanks support for answering their question."},
+      "expected_difficulty": "hard",
+      "notes": "Short conversational follow-up."
+    },
+    {
+      "id": "general-011",
+      "input": "¿Tienen soporte en español durante los fines de semana?",
+      "expected": {"category": "general", "summary": "Customer asks whether Spanish support is available on weekends."},
+      "expected_difficulty": "hard",
+      "notes": "Non-English informational request."
+    },
+    {
+      "id": "general-012",
+      "input": "Your product looks interesting. What is the typical setup time?",
+      "expected": {"category": "general", "summary": "Customer asks about the typical product setup time."},
+      "expected_difficulty": "medium",
+      "notes": "Pre-sales question."
+    },
+    {
+      "id": "general-013",
+      "input": "Is there a limit to how many projects we can create?",
+      "expected": {"category": "general", "summary": "Customer asks whether there is a project-count limit."},
+      "expected_difficulty": "easy",
+      "notes": "Usage-limit question without a reported failure."
+    }
+  ]
+}

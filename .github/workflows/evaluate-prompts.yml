@@ -1,0 +1,58 @@
+name: Evaluate prompt changes
+
+on:
+  pull_request:
+    paths:
+      - "prompts/**"
+      - "data/golden/**"
+      - "src/regression_detection/**"
+      - "pyproject.toml"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install project
+        run: python -m pip install -e ".[dev]"
+
+      - name: Run offline contract tests
+        run: pytest
+
+      - name: Evaluate prompt against OpenAI
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: >-
+          python -m regression_detection.cli
+          --prompt prompts/v1.yaml
+          --dataset data/golden/v1.json
+          --db eval_runs/history.sqlite
+          --report reports/evaluation.html
+          --summary-file reports/evaluation.md
+
+      - name: Upload evaluation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-evaluation-report
+          path: reports/
+
+      - name: Comment report status on pull request
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr comment "$PR_URL" --body-file reports/evaluation.md
