@@ -107,3 +107,22 @@ The current v1 dataset contains 25 cases spanning all four categories, including
 ## Architecture direction
 
 The LLM provider is isolated behind a small async adapter so the evaluator can be tested without network calls. Prompt files are data rather than Python code, which makes prompt changes visible to version control and CI. SQLite and JSON will remain the default persistence layer to keep local runs reproducible and portable.
+
+## Demo evidence
+
+The end-to-end demo follows a prompt change from branch to automated evaluation:
+
+1. A prompt change is pushed to a pull request.
+2. GitHub Actions runs the offline tests and the Ollama evaluation.
+3. The run compares results against the committed baseline and publishes the report artifact.
+4. The pull request receives the evaluation summary.
+
+Successful workflow run:
+
+![Successful GitHub Actions evaluation](docs/screenshots/workflow-success.png)
+
+Trusted baseline committed to the repository:
+
+![Trusted baseline pushed to GitHub](docs/screenshots/baseline-pushed.png)
+
+See the live [GitHub Actions workflow](https://github.com/rajaryan-14/model-regresssor-detection/actions) for the latest evaluation history.
