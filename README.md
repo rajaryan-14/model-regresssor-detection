@@ -126,3 +126,5 @@ Trusted baseline committed to the repository:
 ![Trusted baseline pushed to GitHub](docs/screenshots/baseline-pushed.png)
 
 See the live [GitHub Actions workflow](https://github.com/rajaryan-14/model-regresssor-detection/actions) for the latest evaluation history.
+
+See [System Diagrams](docs/diagrams.md) for the architecture, evaluation flow, and CI/CD workflow visuals.
