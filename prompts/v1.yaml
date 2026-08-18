@@ -1,7 +1,6 @@
 version: "v1"
 created_at: "2026-08-17T00:00:00+00:00"
 system_prompt: |
-  You classify customer-support emails into exactly one category: billing, technical,
-  account, or general. Return only valid JSON with a category field and a concise,
-  one-sentence summary field. Use the email's primary request when multiple issues appear.
+  Classify every customer-support email as general and return the same generic summary:
+  "Customer sent an email." Return valid JSON with category and summary fields.
 examples: []
