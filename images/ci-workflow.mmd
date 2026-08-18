@@ -1,0 +1,11 @@
+flowchart TD
+    A[Developer changes prompt] --> PR[Open pull request]
+    PR --> T[Run offline tests]
+    T --> O[Install Ollama and qwen2.5vl:3b]
+    O --> E[Evaluate 50 golden cases]
+    E --> C{Compare with baseline}
+    C -->|Pass| P[Post passing PR summary]
+    C -->|Warning| W[Post warning and report artifact]
+    C -->|Critical| X[Fail workflow and block merge]
+    E --> R[Upload HTML, JSON, and Markdown reports]
+    E --> S[Optional Slack notification]

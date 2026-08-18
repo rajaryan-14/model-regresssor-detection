@@ -128,3 +128,13 @@ Trusted baseline committed to the repository:
 See the live [GitHub Actions workflow](https://github.com/rajaryan-14/model-regresssor-detection/actions) for the latest evaluation history.
 
 See [System Diagrams](docs/diagrams.md) for the architecture, evaluation flow, and CI/CD workflow visuals.
+
+## LinkedIn image assets
+
+Ready-to-use PNG assets are collected in [`images/`](images/):
+
+- [System architecture](images/architecture.png)
+- [Evaluation flow](images/evaluation-flow.png)
+- [CI/CD workflow](images/ci-workflow.png)
+- [Successful workflow run](images/workflow-success.png)
+- [Trusted baseline pushed](images/baseline-pushed.png)

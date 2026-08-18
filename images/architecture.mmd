@@ -1,0 +1,13 @@
+flowchart LR
+    P[Versioned prompt YAML] --> F[Classifier adapter]
+    D[Golden dataset JSON] --> E[Async evaluation runner]
+    F --> E
+    E --> S[Category and summary scoring]
+    S --> R[Evaluation run JSON]
+    R --> DB[(SQLite run history)]
+    R --> B[Baseline comparison]
+    DB --> T[Trend and slow-drift detection]
+    B --> H[HTML report]
+    T --> H
+    B --> SL[Slack alert]
+    H --> CI[GitHub Actions artifact]

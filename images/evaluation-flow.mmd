@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant Runner as Evaluation runner
+    participant Dataset as Golden dataset
+    participant Model as Ollama/OpenAI adapter
+    participant Scorer as Scoring layer
+    participant Store as SQLite
+    participant Report as Report generator
+    Runner->>Dataset: Load and validate cases
+    loop Each case with bounded concurrency
+        Runner->>Model: Classify support email
+        Model-->>Runner: Structured category and summary
+        Runner->>Scorer: Score category and summary
+        Scorer-->>Runner: Case result
+    end
+    Runner->>Store: Save complete evaluation run
+    Runner->>Store: Load compatible baseline/history
+    Runner->>Report: Generate diff and trend report
+    Report-->>Runner: HTML and Markdown artifacts
